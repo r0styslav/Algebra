@@ -1,4 +1,4 @@
-package symphonysolutions.matrix;
+package symphonysolutions.matrix.elements;
 
 public class Decimal {
     private int number;
@@ -9,6 +9,11 @@ public class Decimal {
 
     public int getNumber() {
         return number;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(number);
     }
 }
 

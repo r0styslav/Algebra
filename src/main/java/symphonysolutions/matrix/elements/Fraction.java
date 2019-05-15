@@ -1,4 +1,4 @@
-package symphonysolutions.matrix;
+package symphonysolutions.matrix.elements;
 
 public class Fraction {
     private int numerator, denominator;
@@ -14,6 +14,11 @@ public class Fraction {
 
     public int getDenominator() {
         return denominator;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(numerator + "/" + denominator);
     }
 
 }

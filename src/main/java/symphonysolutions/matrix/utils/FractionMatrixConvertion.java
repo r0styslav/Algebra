@@ -1,17 +1,39 @@
-package symphonysolutions.matrix.helper;
+package symphonysolutions.matrix.utils;
 
-public class MatrixUtil<T> {
+import symphonysolutions.matrix.data.MatrixData;
+import symphonysolutions.matrix.elements.Fraction;
+
+public class FractionMatrixConvertion extends MatrixConvertion implements MatrixUtils {
+
+    @Override
+    public void convert(MatrixData data) {
+
+    }
+
+    // can be implemented for both cases in MatrixConvertion ??
+    @Override
+    public void makeTransposeMatrix(MatrixData data) {
+        int length = data.getMatrixSize();
+        Fraction[][] transpose = new Fraction[length][length];
+        Fraction[][] original = (Fraction[][]) data.getOriginalMatrix();
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
+                transpose[j][i] = original[i][j];
+            }
+        }
+        data.setTransposeMatrix(transpose);
+    }
+
     /**
      * Funtion taken from https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/
      * to check if result is correct
-     * @param a
-     * @param n
+     * @param data
      * @return boolean
      */
-
-    public static boolean isOrthogonal(int[][] a, int n) {
-        // Find transpose
-        int[][] trans = new int[n][n];
+    @Override
+    public boolean isOrthogonal(MatrixData data) {
+       /* // Find transpose
+        Decimal[][] trans = (Decimal[][]) data.getOriginalMatrix();
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++)
                 trans[i][j] = a[j][i];
@@ -42,19 +64,8 @@ public class MatrixUtil<T> {
                 if (i == j && prod[i][j] != 1)
                     return false;
             }
-        }
+        }*/
 
         return true;
-    }
-
-    /**
-     *
-     * @param size
-     */
-    public <T> T[][] generateRandomMatrix(int size) {
-        for (int i=0; i<size; i++) {
-
-        }
-        return null;
     }
 }
