@@ -23,7 +23,6 @@ public class AlgebraApplication {
         matrixUtils.isOrthogonal(generator.getMatrix().getOriginalMatrix());
         generator.generateOrthogonalMatrix(size);
         //matrixUtils.isOrthogonal(generator.getMatrix().getOrthogonalMatrix());
-
     }
 
 }

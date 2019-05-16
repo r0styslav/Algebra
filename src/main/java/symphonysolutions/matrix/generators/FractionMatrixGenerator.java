@@ -11,15 +11,16 @@ import java.util.Random;
 
 public class FractionMatrixGenerator implements MatrixGenerator {
     private MatrixData<Fraction> matrixData = new MatrixData<>();
-    private final int MAX = 1;
-    private final int MIN = -1;
+    private final int MAX = 100;
+    private final int MIN = -100;
 
     @Override
     public void generateRandomMatrix(int size) {
         Fraction[][] fractionArray = new Fraction[size][size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                fractionArray[i][j] = new Fraction(getRandomInteger(), getRandomInteger());
+                //fractionArray[i][j] = new Fraction(getRandomInteger(), getRandomInteger());
+                fractionArray[i][j] = new Fraction(RandomNumberGenerator.generateDouble());
             }
         }
         matrixData.setOriginalMatrix(fractionArray);

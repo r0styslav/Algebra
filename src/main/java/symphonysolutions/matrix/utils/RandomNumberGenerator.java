@@ -14,6 +14,6 @@ public class RandomNumberGenerator {
     }
 
     public static double generateDouble(){
-        return new Random().nextDouble();
+        return (new Random().nextDouble()) * 2 - 1;
     }
 }

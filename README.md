@@ -1,5 +1,9 @@
 # Algebra
 
+Current project generates random square matrix (dec or frac) and checks
+if it's orthogonal.
+
+After it generates othogonal matrix.
 ## Instructions:
 
 * To start the application use this command:
