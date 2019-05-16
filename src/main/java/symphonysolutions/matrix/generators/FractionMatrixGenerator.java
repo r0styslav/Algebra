@@ -15,7 +15,7 @@ public class FractionMatrixGenerator implements MatrixGenerator {
     private final int MIN = -10;
 
     @Override
-    public MatrixData<Fraction> generateRandomMatrix(int size) {
+    public void generateRandomMatrix(int size) {
         Fraction[][] fractionArray = new Fraction[size][size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -23,11 +23,12 @@ public class FractionMatrixGenerator implements MatrixGenerator {
             }
         }
         matrixData.setOriginalMatrix(fractionArray);
-        return matrixData;
+        matrixData.print();
+
     }
 
     @Override
-    public MatrixData<Fraction> generateOrthogonalMatrix(int size) {
+    public void generateOrthogonalMatrix(int size) {
         Fraction[][] fractionArray = new Fraction[size][size];
         DMatrixRMaj orthogonal = RandomMatrices_DDRM.orthogonal(size, size, new Random());
         orthogonal.print();
@@ -37,6 +38,11 @@ public class FractionMatrixGenerator implements MatrixGenerator {
             }
         }
         matrixData.setOrthogonalMatrix(fractionArray);
+        matrixData.printOrthogonalMatrix();
+    }
+
+    @Override
+    public MatrixData<Fraction> getMatrix() {
         return matrixData;
     }
 

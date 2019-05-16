@@ -3,13 +3,13 @@ package symphonysolutions.matrix.utils;
 import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Decimal;
 
-public class DecimalMatrixConvertion extends MatrixConvertion {
+public class DecimalMatrixConversion extends MatrixConvertion implements MatrixUtils<Decimal> {
 
     @Override
-    public void makeTransposeMatrix(MatrixData data) {
+    public void makeTransposeMatrix(MatrixData<Decimal> data) {
         int length = data.getMatrixSize();
         Decimal[][] transpose = new Decimal[length][length];
-        Decimal[][] original = (Decimal[][]) data.getOriginalMatrix();
+        Decimal[][] original = data.getOriginalMatrix();
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
                 transpose[j][i] = original[i][j];
@@ -26,9 +26,9 @@ public class DecimalMatrixConvertion extends MatrixConvertion {
      * @return boolean
      */
     @Override
-    public boolean isOrthogonal(MatrixData data) {
-        int size = data.getMatrixSize();
-        Decimal[][] origin = (Decimal[][]) data.getOriginalMatrix();
+    public boolean isOrthogonal(Decimal[][] data) {
+        int size = data.length;
+        Decimal[][] origin = data;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 int sum = 0;

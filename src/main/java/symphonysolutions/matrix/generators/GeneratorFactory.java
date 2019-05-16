@@ -1,19 +1,19 @@
 package symphonysolutions.matrix.generators;
 
-import symphonysolutions.matrix.utils.DecimalMatrixConvertion;
+import symphonysolutions.matrix.utils.DecimalMatrixConversion;
 import symphonysolutions.matrix.utils.FractionMatrixConvertion;
 import symphonysolutions.matrix.utils.MatrixConvertion;
+import symphonysolutions.matrix.utils.MatrixUtils;
 
 
 public class GeneratorFactory {
     private MatrixGenerator generator;
-    private MatrixConvertion convertion;
-    //private MatrixData<?> matrix;
+    private MatrixUtils convertion;
 
     public GeneratorFactory(String type) {
         if (type.toLowerCase().equals("d")) {
             generator = new DecimalMatrixGenerator();
-            convertion = new DecimalMatrixConvertion();
+            convertion = new DecimalMatrixConversion();
             //matrix = new MatrixData<Decimal>();
         } else if (type.toLowerCase().equals("f")) {
             generator = new FractionMatrixGenerator();
@@ -28,11 +28,8 @@ public class GeneratorFactory {
         return generator;
     }
 
-    public MatrixConvertion getMatrixConvertion() {
+    public MatrixUtils getMatrixConvertion() {
         return convertion;
     }
 
-/*    public MatrixData<T> getMatrixData() {
-        return matrix;
-    }*/
 }

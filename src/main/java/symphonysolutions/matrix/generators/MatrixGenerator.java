@@ -4,8 +4,10 @@ import symphonysolutions.matrix.data.MatrixData;
 
 public interface MatrixGenerator<T> {
 
-     MatrixData<T> generateRandomMatrix(int size);
+    void generateRandomMatrix(int size);
 
-     MatrixData<T> generateOrthogonalMatrix(int size);
+    void generateOrthogonalMatrix(int size);
+
+    MatrixData<T> getMatrix();
 
 }

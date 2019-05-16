@@ -4,13 +4,13 @@ import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Decimal;
 import symphonysolutions.matrix.elements.Fraction;
 
-public class FractionMatrixConvertion extends MatrixConvertion {
+public class FractionMatrixConvertion extends MatrixConvertion implements MatrixUtils<Fraction>  {
     // can be implemented for both cases in MatrixConvertion ??
     @Override
-    public  void makeTransposeMatrix(MatrixData data) {
+    public void makeTransposeMatrix(MatrixData<Fraction> data) {
         int length = data.getMatrixSize();
         Fraction[][] transpose = new Fraction[length][length];
-        Fraction[][] original = (Fraction[][]) data.getOriginalMatrix();
+        Fraction[][] original = data.getOriginalMatrix();
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
                 transpose[j][i] = original[i][j];
@@ -26,9 +26,9 @@ public class FractionMatrixConvertion extends MatrixConvertion {
      * @return boolean
      */
     @Override
-    public boolean isOrthogonal(MatrixData data) {
-        int size = data.getMatrixSize();
-        Fraction[][] origin = (Fraction[][]) data.getOriginalMatrix();
+    public boolean isOrthogonal(Fraction[][] data) {
+        int size = data.length;
+        Fraction[][] origin = data;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 double sum = 0;

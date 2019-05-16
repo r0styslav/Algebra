@@ -6,6 +6,8 @@ public class MatrixData<T> {
     private T[][] orthogonalMatrix;
     private T[][] transposeMatrix;
 
+
+
     public MatrixData(T[][] generatedRandomMatrix) {
         originalMatrix = generatedRandomMatrix;
         matrixSize = generatedRandomMatrix.length;
@@ -14,16 +16,17 @@ public class MatrixData<T> {
     public MatrixData() {
     }
 
+    public T[][] getOrthogonalMatrix() {
+        return orthogonalMatrix;
+    }
+
     public T[][] getOriginalMatrix() {
         return originalMatrix;
     }
 
     public int getMatrixSize() {
-        return matrixSize;
+        return originalMatrix.length;
     }
-    /*    public void setOriginalMatrix(T[][] originalMatrix) {
-        this.originalMatrix = originalMatrix;
-    }*/
 
     public void setOriginalMatrix(T[][] originalMatrix) {
         this.originalMatrix = originalMatrix;
