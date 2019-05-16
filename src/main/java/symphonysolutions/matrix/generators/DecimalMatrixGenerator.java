@@ -1,13 +1,8 @@
 package symphonysolutions.matrix.generators;
 
-import org.ejml.data.DMatrixRMaj;
-import org.ejml.dense.row.RandomMatrices_DDRM;
 import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Decimal;
-import symphonysolutions.matrix.elements.Fraction;
 import symphonysolutions.matrix.utils.RandomNumberGenerator;
-
-import java.util.Random;
 
 public class DecimalMatrixGenerator implements MatrixGenerator {
     private MatrixData<Decimal> matrixData = new MatrixData<>();
@@ -32,6 +27,7 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
     public void generateOrthogonalMatrix(int size) {
         // TODO: implement generating orthogonal matrix for -1, 0, 1 numbers
         matrixData.setOrthogonalMatrix(generateOrthogonalMatrixTest(size));
+        matrixData.printOrthogonalMatrix();
     }
 
     @Override
@@ -42,7 +38,7 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
 
     // to test method isOrthogonal()
     private Decimal[][] generateOrthogonalMatrixTest(int size) {
-
+        System.out.println("Generating Orthogonal Matrix");
         return new Decimal[][] {{new Decimal(1), new Decimal(0), new Decimal(0)},
                 {new Decimal(0), new Decimal(1), new Decimal(0)},
                 {new Decimal(0), new Decimal(0), new Decimal(1)}};

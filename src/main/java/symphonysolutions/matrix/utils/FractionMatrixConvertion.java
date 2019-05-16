@@ -4,7 +4,7 @@ import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Decimal;
 import symphonysolutions.matrix.elements.Fraction;
 
-public class FractionMatrixConvertion extends MatrixConvertion implements MatrixUtils<Fraction>  {
+public class FractionMatrixConvertion implements MatrixUtils<Fraction>  {
     // can be implemented for both cases in MatrixConvertion ??
     @Override
     public void makeTransposeMatrix(MatrixData<Fraction> data) {
@@ -17,6 +17,7 @@ public class FractionMatrixConvertion extends MatrixConvertion implements Matrix
             }
         }
         data.setTransposeMatrix(transpose);
+        data.printTransposeMatrixMatrix();
     }
 
     /**
@@ -27,6 +28,7 @@ public class FractionMatrixConvertion extends MatrixConvertion implements Matrix
      */
     @Override
     public boolean isOrthogonal(Fraction[][] data) {
+        System.out.print("Checking if matrix is Orthogonal----------> ");
         int size = data.length;
         Fraction[][] origin = data;
         for (int i = 0; i < size; i++) {

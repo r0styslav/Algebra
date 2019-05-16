@@ -3,7 +3,7 @@ package symphonysolutions.matrix.utils;
 import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Decimal;
 
-public class DecimalMatrixConversion extends MatrixConvertion implements MatrixUtils<Decimal> {
+public class DecimalMatrixConversion implements MatrixUtils<Decimal> {
 
     @Override
     public void makeTransposeMatrix(MatrixData<Decimal> data) {
@@ -27,6 +27,7 @@ public class DecimalMatrixConversion extends MatrixConvertion implements MatrixU
      */
     @Override
     public boolean isOrthogonal(Decimal[][] data) {
+        System.out.print("Checking if matrix is Orthogonal----------> ");
         int size = data.length;
         Decimal[][] origin = data;
         for (int i = 0; i < size; i++) {

@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class FractionMatrixGenerator implements MatrixGenerator {
     private MatrixData<Fraction> matrixData = new MatrixData<>();
-    private final int MAX = 10;
-    private final int MIN = -10;
+    private final int MAX = 1;
+    private final int MIN = -1;
 
     @Override
     public void generateRandomMatrix(int size) {
@@ -29,9 +29,10 @@ public class FractionMatrixGenerator implements MatrixGenerator {
 
     @Override
     public void generateOrthogonalMatrix(int size) {
+        System.out.println("Generating Orthogonal Matrix");
         Fraction[][] fractionArray = new Fraction[size][size];
         DMatrixRMaj orthogonal = RandomMatrices_DDRM.orthogonal(size, size, new Random());
-        orthogonal.print();
+        //orthogonal.print();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 fractionArray[i][j] = new Fraction(orthogonal.get(i, j));
