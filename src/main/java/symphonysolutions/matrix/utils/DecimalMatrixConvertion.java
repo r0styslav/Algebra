@@ -6,11 +6,6 @@ import symphonysolutions.matrix.elements.Decimal;
 public class DecimalMatrixConvertion extends MatrixConvertion {
 
     @Override
-    public void convert(MatrixData data) {
-
-    }
-
-    @Override
     public void makeTransposeMatrix(MatrixData data) {
         int length = data.getMatrixSize();
         Decimal[][] transpose = new Decimal[length][length];

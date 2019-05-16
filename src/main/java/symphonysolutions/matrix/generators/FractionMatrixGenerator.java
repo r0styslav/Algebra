@@ -1,27 +1,48 @@
 package symphonysolutions.matrix.generators;
 
+import org.ejml.data.DMatrixRMaj;
+import org.ejml.dense.row.RandomMatrices_DDRM;
+import symphonysolutions.matrix.elements.Decimal;
 import symphonysolutions.matrix.elements.Fraction;
 import symphonysolutions.matrix.data.MatrixData;
+import symphonysolutions.matrix.utils.RandomNumberGenerator;
 
 import java.util.Random;
 
 public class FractionMatrixGenerator implements MatrixGenerator {
-    private final int BOUNDARY = 100;
+    private MatrixData<Fraction> matrixData = new MatrixData<>();
+    private final int MAX = 10;
+    private final int MIN = -10;
 
     @Override
-    public MatrixData generateRandomMatrix(int size) {
+    public MatrixData<Fraction> generateRandomMatrix(int size) {
         Fraction[][] fractionArray = new Fraction[size][size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 fractionArray[i][j] = new Fraction(getRandomInteger(), getRandomInteger());
             }
         }
-        return new MatrixData<>(fractionArray);
+        matrixData.setOriginalMatrix(fractionArray);
+        return matrixData;
+    }
+
+    @Override
+    public MatrixData<Fraction> generateOrthogonalMatrix(int size) {
+        Fraction[][] fractionArray = new Fraction[size][size];
+        DMatrixRMaj orthogonal = RandomMatrices_DDRM.orthogonal(size, size, new Random());
+        orthogonal.print();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                fractionArray[i][j] = new Fraction(orthogonal.get(i, j));
+            }
+        }
+        matrixData.setOrthogonalMatrix(fractionArray);
+        return matrixData;
     }
 
     private int getRandomInteger() {
         do {
-            int value = new Random().nextInt(BOUNDARY);
+            int value = RandomNumberGenerator.generateInt(MIN, MAX);
             if (value!=0) return value;
         } while (true);
     }

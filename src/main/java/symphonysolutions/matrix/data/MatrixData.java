@@ -25,6 +25,10 @@ public class MatrixData<T> {
         this.originalMatrix = originalMatrix;
     }*/
 
+    public void setOriginalMatrix(T[][] originalMatrix) {
+        this.originalMatrix = originalMatrix;
+    }
+
     public void setOrthogonalMatrix(T[][] orthogonalMatrix) {
         this.orthogonalMatrix = orthogonalMatrix;
     }

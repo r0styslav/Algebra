@@ -1,18 +1,13 @@
 package symphonysolutions.matrix.utils;
 
 import symphonysolutions.matrix.data.MatrixData;
+import symphonysolutions.matrix.elements.Decimal;
 import symphonysolutions.matrix.elements.Fraction;
 
-public class FractionMatrixConvertion extends MatrixConvertion implements MatrixUtils {
-
-    @Override
-    public void convert(MatrixData data) {
-
-    }
-
+public class FractionMatrixConvertion extends MatrixConvertion {
     // can be implemented for both cases in MatrixConvertion ??
     @Override
-    public void makeTransposeMatrix(MatrixData data) {
+    public  void makeTransposeMatrix(MatrixData data) {
         int length = data.getMatrixSize();
         Fraction[][] transpose = new Fraction[length][length];
         Fraction[][] original = (Fraction[][]) data.getOriginalMatrix();
@@ -32,40 +27,25 @@ public class FractionMatrixConvertion extends MatrixConvertion implements Matrix
      */
     @Override
     public boolean isOrthogonal(MatrixData data) {
-       /* // Find transpose
-        Decimal[][] trans = (Decimal[][]) data.getOriginalMatrix();
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                trans[i][j] = a[j][i];
-
-        // Find product of a[][]
-        // and its transpose
-        int[][] prod = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-
-                int sum = 0;
-                for (int k = 0; k < n; k++) {
-                    // Since we are multiplying
-                    // transpose of itself. We use
-                    sum = sum + (a[i][k] * a[j][k]);
+        int size = data.getMatrixSize();
+        Fraction[][] origin = (Fraction[][]) data.getOriginalMatrix();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                double sum = 0;
+                for (int k = 0; k < size; k++) {
+                    sum = sum + (origin[i][k].getValue() * origin[j][k].getValue());
                 }
-
-                prod[i][j] = sum;
+                if (i == j && sum != 1) {
+                    System.out.println("Matrix is not Orthogonal");
+                    return false;
+                }
+                if (i != j && sum != 0) {
+                    System.out.println("Matrix is not Orthogonal");
+                    return false;
+                }
             }
         }
-
-        // Check if product is
-        // identity matrix
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i != j && prod[i][j] != 0)
-                    return false;
-                if (i == j && prod[i][j] != 1)
-                    return false;
-            }
-        }*/
-
+        System.out.println("Matrix is Orthogonal");
         return true;
     }
 }

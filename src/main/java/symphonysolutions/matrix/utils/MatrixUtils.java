@@ -2,8 +2,8 @@ package symphonysolutions.matrix.utils;
 
 import symphonysolutions.matrix.data.MatrixData;
 
-public interface MatrixUtils {
-    void makeTransposeMatrix(MatrixData data);
-    boolean isOrthogonal(MatrixData data);
+public interface MatrixUtils<T> {
+    void makeTransposeMatrix(MatrixData<T> data);
+    boolean isOrthogonal(MatrixData<T> data);
 
 }

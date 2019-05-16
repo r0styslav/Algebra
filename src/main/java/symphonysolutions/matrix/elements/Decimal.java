@@ -1,6 +1,6 @@
 package symphonysolutions.matrix.elements;
 
-public class Decimal {
+public class Decimal extends Number {
     private int number;
 
     public Decimal(int decimal) {

@@ -6,6 +6,7 @@ import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.generators.GeneratorFactory;
 import symphonysolutions.matrix.generators.MatrixGenerator;
 import symphonysolutions.matrix.utils.MatrixConvertion;
+import symphonysolutions.matrix.utils.MatrixUtils;
 
 @SpringBootApplication
 public class AlgebraApplication {
@@ -13,15 +14,17 @@ public class AlgebraApplication {
         SpringApplication.run(AlgebraApplication.class, args);
         int size = Integer.parseInt(args[0]);
         String matrixType = args[1];
-        MatrixData matrixData;
+
         GeneratorFactory generatorFactory = new GeneratorFactory(matrixType);
         MatrixGenerator generator = generatorFactory.getMatrixGenerator();
-        MatrixConvertion matrixUtils = generatorFactory.getMatrixConvertion();
-        matrixData = generator.generateRandomMatrix(size);
+        MatrixUtils matrixUtils = generatorFactory.getMatrixConvertion();
+        MatrixData matrixData = generator.generateRandomMatrix(size);
         matrixData.print();
+
         matrixUtils.isOrthogonal(matrixData);
         matrixUtils.makeTransposeMatrix(matrixData);
         matrixData.printTransposeMatrixMatrix();
+        matrixData = generator.generateOrthogonalMatrix(size);
 
     }
 

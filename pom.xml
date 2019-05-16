@@ -29,6 +29,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.ejml/ejml-all -->
+		<dependency>
+			<groupId>org.ejml</groupId>
+			<artifactId>ejml-all</artifactId>
+			<version>0.31</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

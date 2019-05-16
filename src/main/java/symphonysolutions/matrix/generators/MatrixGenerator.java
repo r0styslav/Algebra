@@ -2,8 +2,10 @@ package symphonysolutions.matrix.generators;
 
 import symphonysolutions.matrix.data.MatrixData;
 
-public interface MatrixGenerator {
+public interface MatrixGenerator<T> {
 
-    MatrixData generateRandomMatrix(int size);
+     MatrixData<T> generateRandomMatrix(int size);
+
+     MatrixData<T> generateOrthogonalMatrix(int size);
 
 }
