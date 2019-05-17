@@ -10,7 +10,7 @@ import symphonysolutions.matrix.utils.RandomNumberGenerator;
 import java.util.Random;
 
 public class DecimalMatrixGenerator implements MatrixGenerator {
-    private MatrixData<Decimal> matrixData = new MatrixData<>();
+    private final MatrixData<Decimal> matrixData = new MatrixData<>();
     private final int MAX = 1;
     private final int MIN = -1;
 
