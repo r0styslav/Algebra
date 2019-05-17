@@ -7,7 +7,7 @@ public class Fraction extends Number {
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
-        value = numerator/denominator;
+        value = (double) numerator/denominator;
     }
 
     public Fraction(double value) {

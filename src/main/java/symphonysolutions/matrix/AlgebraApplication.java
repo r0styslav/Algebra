@@ -22,8 +22,7 @@ public class AlgebraApplication {
         generator.generateRandomMatrix(size);
         matrixUtils.isOrthogonal(generator.getMatrix().getOriginalMatrix());
         generator.generateOrthogonalMatrix(size);
-        matrixUtils.isOrthogonal(generator.getMatrix().getOrthogonalMatrix());
-
+        //matrixUtils.isOrthogonal(generator.getMatrix().getOrthogonalMatrix());
     }
 
 }

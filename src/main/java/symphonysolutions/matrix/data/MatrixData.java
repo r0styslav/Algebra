@@ -47,14 +47,14 @@ public class MatrixData<T> {
     public void print(T[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-                System.out.print(" | " + matrix[i][j]);
+                System.out.printf("|%10.6s",matrix[i][j]);
             }
-            System.out.println();
+            System.out.println("|");
         }
     }
 
     public void print() {
-        System.out.println("Original matrix:");
+        System.out.println("Original Random matrix:");
         print(originalMatrix);
     }
 
