@@ -2,12 +2,9 @@ package symphonysolutions.matrix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import symphonysolutions.matrix.data.MatrixData;
-import symphonysolutions.matrix.elements.Decimal;
 import symphonysolutions.matrix.generators.GeneratorFactory;
 import symphonysolutions.matrix.generators.MatrixGenerator;
 import symphonysolutions.matrix.utils.MatrixConvertion;
-import symphonysolutions.matrix.utils.MatrixUtils;
 
 @SpringBootApplication
 public class AlgebraApplication {
@@ -18,7 +15,7 @@ public class AlgebraApplication {
 
         GeneratorFactory generatorFactory = new GeneratorFactory(matrixType, size);
         MatrixGenerator generator = generatorFactory.getMatrixGenerator();
-        MatrixUtils matrixUtils = generatorFactory.getMatrixConvertion();
+        MatrixConvertion matrixUtils = generatorFactory.getMatrixConvertion();
         generator.generateRandomMatrix();
         //matrixUtils.isOrthogonal(generator.getMatrix().getOriginalMatrix());
         matrixUtils.isOrthogonalDense(generator.getMatrix().getOriginalMatrix());

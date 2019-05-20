@@ -1,6 +1,8 @@
 package symphonysolutions.matrix.data;
 
-public class MatrixData<T> {
+import symphonysolutions.matrix.elements.Number;
+
+public class MatrixData<T extends Number> {
     private int matrixSize; // matrix is square only
     private T[][] originalMatrix;
     private T[][] orthogonalMatrix;

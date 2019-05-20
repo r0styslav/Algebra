@@ -8,7 +8,7 @@ import symphonysolutions.matrix.utils.MatrixUtils;
 
 public class GeneratorFactory {
     private MatrixGenerator generator;
-    private MatrixUtils convertion;
+    private MatrixConvertion convertion;
     private static final int DEFAULT_SIZE = 5;
 
     public GeneratorFactory(String type) {
@@ -35,7 +35,7 @@ public class GeneratorFactory {
         return generator;
     }
 
-    public MatrixUtils getMatrixConvertion() {
+    public MatrixConvertion getMatrixConvertion() {
         return convertion;
     }
 

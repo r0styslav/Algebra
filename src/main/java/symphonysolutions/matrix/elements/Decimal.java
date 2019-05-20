@@ -7,7 +7,7 @@ public class Decimal extends Number {
         number = decimal;
     }
 
-    public int getNumber() {
+    public double getValue() {
         return number;
     }
 

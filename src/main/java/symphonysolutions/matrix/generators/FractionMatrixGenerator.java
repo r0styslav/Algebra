@@ -53,7 +53,7 @@ public class FractionMatrixGenerator implements MatrixGenerator {
 
     @Override
     public void generateOrthogonalMatrix() {
-        generateRandomMatrix(SIZE);
+        generateOrthogonalMatrix(SIZE);
     }
 
     @Override
