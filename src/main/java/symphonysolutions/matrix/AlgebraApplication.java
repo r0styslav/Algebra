@@ -22,6 +22,9 @@ public class AlgebraApplication {
         generator.generateOrthogonalMatrix();
         //matrixUtils.isOrthogonal(generator.getMatrix().getOrthogonalMatrix());
         matrixUtils.isOrthogonalDense(generator.getMatrix().getOrthogonalMatrix());
+
+
+
     }
 
 }

@@ -2,7 +2,6 @@ package symphonysolutions.matrix.generators;
 
 import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Decimal;
-import symphonysolutions.matrix.utils.RandomNumberGenerator;
 
 public class DecimalMatrixGenerator implements MatrixGenerator {
     private final MatrixData<Decimal> matrixData = new MatrixData<>();

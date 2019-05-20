@@ -1,4 +1,4 @@
-package symphonysolutions.matrix.utils;
+package symphonysolutions.matrix.generators;
 
 import java.util.Random;
 

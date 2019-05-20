@@ -5,7 +5,6 @@ import org.ejml.dense.row.MatrixFeatures_DDRM;
 import org.ejml.dense.row.RandomMatrices_DDRM;
 import symphonysolutions.matrix.elements.Fraction;
 import symphonysolutions.matrix.data.MatrixData;
-import symphonysolutions.matrix.utils.RandomNumberGenerator;
 
 import java.util.Random;
 
