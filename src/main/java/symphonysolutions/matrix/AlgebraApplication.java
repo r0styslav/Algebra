@@ -16,13 +16,15 @@ public class AlgebraApplication {
         int size = Integer.parseInt(args[0]);
         String matrixType = args[1];
 
-        GeneratorFactory generatorFactory = new GeneratorFactory(matrixType);
+        GeneratorFactory generatorFactory = new GeneratorFactory(matrixType, size);
         MatrixGenerator generator = generatorFactory.getMatrixGenerator();
         MatrixUtils matrixUtils = generatorFactory.getMatrixConvertion();
-        generator.generateRandomMatrix(size);
-        matrixUtils.isOrthogonal(generator.getMatrix().getOriginalMatrix());
-        generator.generateOrthogonalMatrix(size);
+        generator.generateRandomMatrix();
+        //matrixUtils.isOrthogonal(generator.getMatrix().getOriginalMatrix());
+        matrixUtils.isOrthogonalDense(generator.getMatrix().getOriginalMatrix());
+        generator.generateOrthogonalMatrix();
         //matrixUtils.isOrthogonal(generator.getMatrix().getOrthogonalMatrix());
+        matrixUtils.isOrthogonalDense(generator.getMatrix().getOrthogonalMatrix());
     }
 
 }

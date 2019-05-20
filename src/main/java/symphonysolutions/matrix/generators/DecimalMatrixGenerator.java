@@ -9,6 +9,11 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
     private final int MAX = 1;
     private final int MIN = -1;
 
+    private int SIZE;
+
+    public DecimalMatrixGenerator(int size) {
+        SIZE = size;
+    }
 
     @Override
     public void generateRandomMatrix(int size) {
@@ -22,6 +27,9 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
         matrixData.print();
     }
 
+    public void generateRandomMatrix() {
+        generateRandomMatrix(SIZE);
+    }
 
     @Override
     public void generateOrthogonalMatrix(int size) {
@@ -30,8 +38,16 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
         matrixData.printOrthogonalMatrix();
     }
 
+
+    public void generateOrthogonalMatrix() {
+        generateRandomMatrix(SIZE);
+    }
+
     @Override
     public MatrixData<Decimal> getMatrix() {
+        if (matrixData == null) {
+            generateRandomMatrix();
+        }
         return matrixData;
     }
 

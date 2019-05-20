@@ -1,8 +1,11 @@
 package symphonysolutions.matrix.utils;
 
+import org.ejml.data.DMatrixRMaj;
+import org.ejml.dense.row.MatrixFeatures_DDRM;
 import symphonysolutions.matrix.data.MatrixData;
-import symphonysolutions.matrix.elements.Decimal;
 import symphonysolutions.matrix.elements.Fraction;
+
+import java.util.Arrays;
 
 public class FractionMatrixConvertion implements MatrixUtils<Fraction>  {
     // can be implemented for both cases in MatrixConvertion ??
@@ -23,21 +26,21 @@ public class FractionMatrixConvertion implements MatrixUtils<Fraction>  {
     /**
      * Funtion taken from https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/
      * to check if result is correct
-     * @param data
+     * @param matrix
      * @return boolean
      */
     @Override
-    public boolean isOrthogonal(Fraction[][] data) {
+    public boolean isOrthogonal(Fraction[][] matrix) {
         System.out.print("Checking if matrix is Orthogonal----------> ");
-        int size = data.length;
-        Fraction[][] origin = data;
+        Fraction[][] origin = Arrays.stream(matrix).toArray(Fraction[][]::new);
+        int size = matrix.length;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 double sum = 0;
                 for (int k = 0; k < size; k++) {
                     sum = sum + (origin[i][k].getValue() * origin[j][k].getValue());
                 }
-                if (i == j && sum != 1) {
+                if (sum != 1 && i == j) {
                     System.out.println("Matrix is not Orthogonal");
                     return false;
                 }
@@ -50,4 +53,31 @@ public class FractionMatrixConvertion implements MatrixUtils<Fraction>  {
         System.out.println("Matrix is Orthogonal");
         return true;
     }
+
+    @Override
+    public boolean isOrthogonalDense(Fraction[][] matrix) {
+        System.out.print("Checking if matrix is Orthogonal (Dense)----------> ");
+        DMatrixRMaj dMatrixRMaj = convertMatrixDataToDMatrix(matrix);
+        if (MatrixFeatures_DDRM.isOrthogonal(dMatrixRMaj, 0.5)) {
+            System.out.println("Matrix is Orthogonal!");
+            return true;
+        } else {
+            System.out.println("Matrix is not orthogonal !");
+            return false;
+        }
+    }
+
+    private DMatrixRMaj convertMatrixDataToDMatrix(Fraction[][] data) {
+        DMatrixRMaj matrix = new DMatrixRMaj(data.length, data.length);
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data.length; j++) {
+                matrix.set(i, j, data[i][j].getValue());
+            }
+        }
+        System.out.println("DMatrix :");
+        matrix.print();
+        return matrix;
+    }
+
+
 }
