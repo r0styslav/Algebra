@@ -4,9 +4,8 @@ import org.ejml.data.DMatrixRMaj;
 import org.ejml.dense.row.MatrixFeatures_DDRM;
 import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Decimal;
-import symphonysolutions.matrix.elements.Fraction;
-
 import java.util.Arrays;
+
 
 public class DecimalMatrixConversion implements MatrixUtils<Decimal> {
 

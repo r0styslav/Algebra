@@ -19,7 +19,6 @@ public class FractionMatrixGenerator implements MatrixGenerator {
         SIZE = size;
     }
 
-    @Override
     public void generateRandomMatrix(int size) {
         Fraction[][] fractionArray = new Fraction[size][size];
         for (int i = 0; i < size; i++) {
@@ -32,11 +31,11 @@ public class FractionMatrixGenerator implements MatrixGenerator {
         matrixData.print();
     }
 
+    @Override
     public void generateRandomMatrix() {
         generateRandomMatrix(SIZE);
     }
 
-    @Override
     public void generateOrthogonalMatrix(int size) {
         System.out.println("Generating Orthogonal Matrix");
         Fraction[][] fractionArray = new Fraction[size][size];
@@ -52,6 +51,7 @@ public class FractionMatrixGenerator implements MatrixGenerator {
         matrixData.printOrthogonalMatrix();
     }
 
+    @Override
     public void generateOrthogonalMatrix() {
         generateRandomMatrix(SIZE);
     }

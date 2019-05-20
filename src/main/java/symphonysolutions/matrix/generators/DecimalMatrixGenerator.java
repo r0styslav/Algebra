@@ -5,7 +5,7 @@ import symphonysolutions.matrix.elements.Decimal;
 import symphonysolutions.matrix.utils.RandomNumberGenerator;
 
 public class DecimalMatrixGenerator implements MatrixGenerator {
-    private MatrixData<Decimal> matrixData = new MatrixData<>();
+    private final MatrixData<Decimal> matrixData = new MatrixData<>();
     private final int MAX = 1;
     private final int MIN = -1;
 
@@ -15,7 +15,6 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
         SIZE = size;
     }
 
-    @Override
     public void generateRandomMatrix(int size) {
         Decimal[][] decimalArray = new Decimal[size][size];
         for (int i = 0; i < size; i++) {
@@ -27,18 +26,19 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
         matrixData.print();
     }
 
+    @Override
     public void generateRandomMatrix() {
         generateRandomMatrix(SIZE);
     }
 
-    @Override
+
     public void generateOrthogonalMatrix(int size) {
         // TODO: implement generating orthogonal matrix for -1, 0, 1 numbers
         matrixData.setOrthogonalMatrix(generateOrthogonalMatrixTest(size));
         matrixData.printOrthogonalMatrix();
     }
 
-
+    @Override
     public void generateOrthogonalMatrix() {
         generateRandomMatrix(SIZE);
     }
