@@ -1,9 +1,8 @@
 package symphonysolutions.matrix.generators;
 
 import symphonysolutions.matrix.utils.DecimalMatrixConversion;
-import symphonysolutions.matrix.utils.FractionMatrixConvertion;
+import symphonysolutions.matrix.utils.FractionMatrixConversion;
 import symphonysolutions.matrix.utils.MatrixConvertion;
-import symphonysolutions.matrix.utils.MatrixUtils;
 
 
 public class GeneratorFactory {
@@ -22,7 +21,7 @@ public class GeneratorFactory {
             //matrix = new MatrixData<Decimal>();
         } else if (type.toLowerCase().equals("f")) {
             generator = new FractionMatrixGenerator(size);
-            convertion = new FractionMatrixConvertion();
+            convertion = new FractionMatrixConversion();
             //matrix = new MatrixData<Fraction>();
         } else
             System.out.println("Incorrect matrix type -> D / F");

@@ -3,7 +3,7 @@ package symphonysolutions.matrix.utils;
 import symphonysolutions.matrix.data.MatrixData;
 import symphonysolutions.matrix.elements.Fraction;
 
-public class FractionMatrixConvertion extends MatrixConvertion<Fraction> {
+public class FractionMatrixConversion extends MatrixConvertion<Fraction> {
 
     @Override
     public void makeTransposeMatrix(MatrixData<Fraction> data) {

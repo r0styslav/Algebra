@@ -40,7 +40,7 @@ public class DecimalMatrixGenerator implements MatrixGenerator {
 
     @Override
     public void generateOrthogonalMatrix() {
-        generateRandomMatrix(SIZE);
+        generateOrthogonalMatrix(SIZE);
     }
 
     @Override

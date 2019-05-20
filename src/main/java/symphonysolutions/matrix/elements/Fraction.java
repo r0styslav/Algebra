@@ -5,12 +5,14 @@ public class Fraction extends Number {
     private double value;
 
     public Fraction(int numerator, int denominator) {
+        super((double) numerator/denominator);
         this.numerator = numerator;
         this.denominator = denominator;
         value = (double) numerator/denominator;
     }
 
     public Fraction(double value) {
+        super(value);
         this.value = value;
     }
 
@@ -26,12 +28,6 @@ public class Fraction extends Number {
         return value;
     }
 
-    @Override
-    /*public String toString() {
-        return String.valueOf(numerator + "/" + denominator);
-    }*/
-    public String toString() {
-        return String.valueOf(value);
-    }
+
 
 }
