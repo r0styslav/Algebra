@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class GramSchmidt {
 
-    public static Number[][] useGramSchmidt(Number[][] matrix) {
+ /*   public static Number[][] useGramSchmidt(Number[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
-            
+
         }
     }
-
+*/
     private static ArrayList< double[] > gramSchmidt(ArrayList< double[] > array)
     {
         ArrayList< double[] > finalArray= new ArrayList<>();
